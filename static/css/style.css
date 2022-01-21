@@ -1,0 +1,17 @@
+body {
+    font-family: Arial;
+    font-size: 16px;
+    line-height: 1.5;
+
+    background-color: #FFFFFF;
+    color: #333333;
+}
+
+html, body {
+    position: fixed;
+    margin: 0;
+}
+
+canvas {
+    vertical-align: bottom;
+}
