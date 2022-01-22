@@ -263,6 +263,7 @@ document.addEventListener("mousemove", function(event) {
 
 // On touchmove
 document.addEventListener("touchmove", function(event) {
+    event.preventDefault()
     if (isMouseDown) {
         // aimToX = ((window.innerWidth / 2) - event.pageX) * 4
         // aimToY = ((window.innerHeight / 2) - event.pageY) * 4  
