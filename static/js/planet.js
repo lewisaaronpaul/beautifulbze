@@ -35,7 +35,7 @@ const loader = new THREE.TextureLoader()
 const makePlanet = function () {
     // Load in an image
     const texture = loader.load("../static/images/pic01.jpg")  //2^12x2^11
-    const geometry = new THREE.SphereGeometry(800, 128, 128)
+    const geometry = new THREE.SphereGeometry(700, 128, 128)
     const material = new THREE.MeshLambertMaterial({
         // color: 0x2727e6,
         map: texture
@@ -64,7 +64,7 @@ const makeRing = function (radius, color) {
 }
 
 // Make stars
-const makeStars = function (url, num) {
+const makeStars = function (url, num, size) {
     const texture = loader.load(url)
 
     let geometry = new THREE.BufferGeometry()
@@ -79,7 +79,7 @@ const makeStars = function (url, num) {
             const v = Math.random()
             const theta = u * 2.0 * Math.PI
             const phi = Math.acos(2.0 * v - 1.0)
-            const r = (Math.cbrt(Math.random()) *800) + 1000
+            const r = (Math.cbrt(Math.random()) *100) + 1400
 
             const point = new THREE.Vector3() 
             const sphericalPoint = new THREE.Spherical(
@@ -118,7 +118,7 @@ const makeStars = function (url, num) {
 
     const material = new THREE.PointsMaterial({
         // color: 0xffffff,
-        size: 100,
+        size: size,
         map: texture,
         transparent: true,
         blending: THREE.AdditiveBlending,
@@ -149,26 +149,28 @@ const makeMoon = function () {
 // Let's draw
 const earth = makePlanet()
 
-const ring1 = makeRing(1100, 0xd50ffc)
-const ring2 = makeRing(1200, 0xffffff)
-const ring3 = makeRing(1300, 0xffdb00)
+const ring1 = makeRing(1000, 0xd50ffc)
+const ring2 = makeRing(1100, 0xffffff)
+const ring3 = makeRing(1150, 0xffdb00)
 
-const stars1 = makeStars("../static/images/501.png", 500)
-const stars2 = makeStars("../static/images/BZE.png", 500)
-const stars3 = makeStars("../static/images/white.png", 1000)
-const stars4 = makeStars("../static/images/red.png", 1000)
-const stars5 = makeStars("../static/images/blue.png", 1000)
+const stars1 = makeStars("../static/images/501.png", 500, 100)
+const stars2 = makeStars("../static/images/BZE.png", 500, 100)
+const stars3 = makeStars("../static/images/white.png", 2000, 100)
+const stars4 = makeStars("../static/images/red.png", 2000, 100)
+const stars5 = makeStars("../static/images/blue.png", 2000, 100)
+const flag = makeStars("../static/images/belizeflag01.png", 10, 300)
 const starGroup = new THREE.Group()
 starGroup.add(stars1)
 starGroup.add(stars2)
 starGroup.add(stars3)
 starGroup.add(stars4)
 starGroup.add(stars5)
+starGroup.add(flag)
 
 scene.add(starGroup)
 
 const moon = makeMoon()
-moon.translateX(-1600)
+moon.translateX(-1300)
 const moonGroup = new THREE.Group()
 moonGroup.add(moon)
 scene.add(moonGroup)
