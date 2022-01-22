@@ -263,11 +263,22 @@ document.addEventListener("mousemove", function(event) {
 
 // On touchmove
 document.addEventListener("touchmove", function(event) {
-    aimToX = ((window.innerWidth / 2) - event.pageX) * 4
-    aimToY = ((window.innerHeight / 2) - event.pageY) * 4
+    if (isMouseDown) {
+        // aimToX = ((window.innerWidth / 2) - event.pageX) * 4
+        // aimToY = ((window.innerHeight / 2) - event.pageY) * 4  
+        aimToX = aimToX + ((event.pageX - startX) * 4)
+        aimToY = aimToY + ((event.pageY - startY) * 4)
+        startX = event.pageX
+        startY = event.pageY
+    }
 })
 
+// On touchstart
+document.addEventListener("touchstart", function () {
+    isMouseDown = true
+})
 
-
-
-
+// On touchend
+document.addEventListener("touchend", function () {
+    isMouseDown = false
+})
