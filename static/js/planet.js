@@ -25,7 +25,7 @@ pointLight.position.set(500, 500, -2000)
 scene.add(pointLight)
 
 // Add a camera to the page
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000)
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 10000)
 camera.position.z = -3000  // move the camera back a bit
 
 // Make a THREE.js loader: texture loader
