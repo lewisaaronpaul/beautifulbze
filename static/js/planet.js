@@ -91,29 +91,6 @@ const makeStars = function (url, num, size) {
             pointCoords.push(point)
     }
 
-
-    // for (let i = 0; i < num; i = i + 1) {
-    //     const point = new THREE.Vector3()
-    //     // Let's use spherical coordinated
-    //     sphericalPoint = new THREE.Spherical(
-    //         900 + Math.random() * 900,
-    //         2 * Math.PI * Math.random(),
-    //         Math.PI * Math.random()
-    //     )
-
-    //     point.setFromSpherical(sphericalPoint)
-    //     pointCoords.push(point)
-    // }
-
-    // for (let i = 0; i < 5000; i = i + 1) {
-    //     const point = new THREE.Vector3(
-    //         2500 * Math.random() - 1250,
-    //         2500 * Math.random() - 1250,
-    //         2500 * Math.random() - 1250
-    //     )
-    //     pointCoords.push(point)
-    // }
-
     geometry.setFromPoints(pointCoords)
 
     const material = new THREE.PointsMaterial({
